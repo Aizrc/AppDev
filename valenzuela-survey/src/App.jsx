@@ -54,7 +54,9 @@ function App() {
             } 
           />
 
-          {/* Main Routes - With Header/Footer */}
+          <Route path="/survey" element={<SurveyForm />} />
+
+  
           <Route path="/*" element={
             <div className="min-h-screen flex flex-col">
               <Header />

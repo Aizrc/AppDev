@@ -1,10 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 
-/**
- * Base ProtectedRoute component
- * Redirects to login if user is not authenticated
- */
 const ProtectedRoute = ({ children, requiredRole = null, redirectTo = '/' }) => {
   const { isAuthenticated, hasRole, loading } = useAuth();
   const location = useLocation();

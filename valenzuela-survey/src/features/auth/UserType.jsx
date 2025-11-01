@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Users, LogIn } from 'lucide-react';
 import Button from '../../components/ui/Button';
 
 const UserType = ({ onSelectUserType, onClose }) => {
   const [selectedType, setSelectedType] = useState(null);
+  const navigate = useNavigate();
 
   const userTypes = [
     {
@@ -26,7 +28,17 @@ const UserType = ({ onSelectUserType, onClose }) => {
 
   const handleContinue = () => {
     if (selectedType) {
-      onSelectUserType(selectedType);
+      if (onSelectUserType) {
+        onSelectUserType(selectedType);
+      } else {
+        // fallback navigation when parent doesn't handle routing
+        if (selectedType === 'survey') {
+          navigate('/survey', { state: { surveyId: 1 } });
+        } else if (selectedType === 'signin') {
+          navigate('/signin');
+        }
+      }
+      if (onClose) onClose();
     }
   };
 
