@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0D2C54;
+  --color-secondary: #145DA0;
+  --color-accent: #0E86D4;
+  --color-background: #F4F6F8;
+  --color-text: #1C1C1C;
+  --color-highlight: #89CFF0;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-secondary text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-accent text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300;
+  }
+  
+  .btn-accent {
+    @apply bg-accent hover:bg-highlight text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300;
+  }
+}
